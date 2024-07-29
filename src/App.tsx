@@ -1,6 +1,6 @@
 import { QueryClientProvider } from 'react-query'
 import { RouterProvider } from 'react-router-dom'
-import './App.css'
+import '../src/style/index.css'
 import { queryClient } from './reactQuery/QueryClient'
 import { createRoutes } from './routes/routes'
 
