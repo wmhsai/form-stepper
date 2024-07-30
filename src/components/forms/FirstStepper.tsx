@@ -14,7 +14,7 @@ const FirstStepper = () => {
     const allNames = [...new Set<string>(data?.data.map((item: ItemInterface) => item.name))];
 
     return (
-        <div style={classes.FormWrapper}>
+        <div style={styles.FormWrapper}>
             <ComboInput
                 control={control}
                 options={allNames}
@@ -29,7 +29,7 @@ const FirstStepper = () => {
 
 export default FirstStepper;
 
-const classes = {
+const styles = {
     FormWrapper: {
         display: "flex",
         gap: "2rem",

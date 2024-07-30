@@ -3,8 +3,8 @@ import { Outlet } from "react-router-dom";
 const Layout = () => {
 
     return (
-        <div style={classes.root}>
-            <div style={classes.content}>
+        <div style={styles.root}>
+            <div style={styles.content}>
                 <Outlet />
             </div>
         </div>
@@ -13,7 +13,7 @@ const Layout = () => {
 
 export default Layout;
 
-const classes = {
+const styles = {
     root: {
         width: "100%",
         height: "100vh",

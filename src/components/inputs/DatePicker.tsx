@@ -21,7 +21,7 @@ function DatePicker({ name, disabled, label, handleChange, defaultValue, rules, 
     });
 
     return (
-        <div style={{ ...classes.TextInputWrapper as React.CSSProperties }}>
+        <div style={{ ...styles.TextInputWrapper as React.CSSProperties }}>
             <label style={{ fontSize: "10pt" }}>{!disabled ? label : null}</label>
             <input
                 disabled={disabled}
@@ -33,7 +33,7 @@ function DatePicker({ name, disabled, label, handleChange, defaultValue, rules, 
                     field.onChange(e.target.value);
                     handleChange?.(e.target.value);
                 }}
-                style={{ ...classes.InputStyle, border: error ? '1px solid red' : '' }}
+                style={{ ...styles.InputStyle, border: error ? '1px solid red' : '' }}
             />
             {error && (
                 <span style={{ color: 'red' }}>{error.message}</span>
@@ -44,7 +44,7 @@ function DatePicker({ name, disabled, label, handleChange, defaultValue, rules, 
 
 export default DatePicker;
 
-const classes = {
+const styles = {
     TextInputWrapper: {
         width: '20rem',
         display: "flex",

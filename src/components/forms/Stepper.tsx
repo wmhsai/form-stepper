@@ -32,7 +32,7 @@ function StepperCustom({ steps }: { steps: StepType[] }) {
                     <div style={{ minHeight: "20rem" }}>
                         {steps[activeStep].component}
                     </div>
-                    <div style={{ ...classes.ButtonWrapper as React.CSSProperties }}>
+                    <div style={{ ...styles.ButtonWrapper as React.CSSProperties }}>
                         <button onClick={() => setActiveStep(activeStep - 1)} disabled={activeStep === 0}>Previous</button>
                         {activeStep < steps.length - 1 ? (
                             <button onClick={nextStep}>Next</button>
@@ -49,7 +49,7 @@ function StepperCustom({ steps }: { steps: StepType[] }) {
 
 export default StepperCustom;
 
-const classes = {
+const styles = {
     ButtonWrapper: {
         display: "flex",
         justifyContent: "space-around",
