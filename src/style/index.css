@@ -38,12 +38,15 @@
     color: #fff;
     font-family: inherit;
     background-color: #3068fa;
-    border-radius: 1.5rem;
+    border-radius: 1rem;
     cursor: pointer;
     transition: border-color 0.25s;
   }
+  button:disabled{
+    background-color: #cfd8ee;
+  }
   button:hover {
-    background-color: #2a5cd8;
+    background-color: #7aa0ff;
   }
   button:focus,
   button:focus-visible {
