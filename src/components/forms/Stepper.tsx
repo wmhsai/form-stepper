@@ -3,7 +3,6 @@ import { Step, Stepper } from "react-form-stepper";
 import { FormProvider, useForm } from 'react-hook-form';
 import { StepperType, StepType } from '../../types/stepperTypes';
 
-
 function StepperCustom({ steps }: { steps: StepType[] }) {
     const [activeStep, setActiveStep] = useState(0);
 
@@ -18,8 +17,6 @@ function StepperCustom({ steps }: { steps: StepType[] }) {
             setActiveStep(activeStep + 1);
         }
     }
-    console.log(activeStep,);
-
     return (
         <div>
             <FormProvider  {...formProps}>

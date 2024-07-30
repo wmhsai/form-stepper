@@ -28,8 +28,9 @@ const ComboInput: React.FC<SelectionProps> = ({ options, selectedOption, onChang
 
   return (
     <div style={{ ...styles.comboWrapper as React.CSSProperties }}>
-      <label style={{ fontSize: "10pt" }}>{!disabled ? label : null}</label>
+      <label style={{ fontSize: "10pt",paddingBottom:".2rem" }}>{label}</label>
       <select
+        disabled={disabled}
         name={name}
         value={selectedOption}
         onChange={handleChange}
@@ -38,9 +39,9 @@ const ComboInput: React.FC<SelectionProps> = ({ options, selectedOption, onChang
         }}
       >
         <option value="">Select...</option>
-        {options.map((option, index) => (
-          <option key={index} value={option}>
-            {option}
+        {options?.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.name}
           </option>
         ))}
       </select>

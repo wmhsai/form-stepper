@@ -1,7 +1,14 @@
+
 import { ControllerProps, useController } from 'react-hook-form';
+import { isValidPhoneNumber, isValidateNationalCode } from "../../utils/Validations";
+import { INPUT_TYPES } from '../../utils/enums';
 import { TextInputProps } from './inputsProps';
 
-function DatePicker({ name, disabled, label, handleChange, defaultValue, rules, required, control }: TextInputProps) {
+function NumberInput({ name, disabled, label, handleChange, defaultValue, rules, required, control, type }: TextInputProps) {
+
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        ['e', 'E', '+', '-', '.'].includes(event.key) && event.preventDefault();
+    };
 
     const validationRules: ControllerProps['rules'] = {
         ...rules,
@@ -9,6 +16,14 @@ function DatePicker({ name, disabled, label, handleChange, defaultValue, rules, 
             required: rules?.required || '*',
         }),
     }
+
+    if (type == INPUT_TYPES.NATIONAL_CODE) {
+        validationRules!.validate = isValidateNationalCode;
+    }
+    else if (type == INPUT_TYPES.PHONE_NUMBER) {
+        validationRules!.validate = isValidPhoneNumber;
+    }
+
 
     const {
         field,
@@ -22,27 +37,28 @@ function DatePicker({ name, disabled, label, handleChange, defaultValue, rules, 
 
     return (
         <div style={{ ...styles.TextInputWrapper as React.CSSProperties }}>
-            <label style={{ fontSize: "10pt" ,paddingBottom:".2rem"}}>{label}</label>
+            <label style={{ fontSize: "10pt", paddingBottom: ".2rem" }}>{!disabled ? label : null}</label>
             <input
                 disabled={disabled}
                 {...field}
                 value={field.value || ""}
                 name={name}
-                type="date"
+                type="number"
+                onKeyDown={handleKeyDown}
                 onChange={(e) => {
                     field.onChange(e.target.value);
                     handleChange?.(e.target.value);
                 }}
-                style={{ ...styles.InputStyle, border: error ? '1px solid red' : '' }}
+                style={{ ...styles.InputStyle, border: error ? '1px solid red' : '', }}
             />
             {error && (
-                <span style={{ color: 'red' }}>{error.message}</span>
+                <span style={{ color: 'red', fontSize: "8pt" }}>{error.message}</span>
             )}
         </div>
     );
 }
 
-export default DatePicker;
+export default NumberInput;
 
 const styles = {
     TextInputWrapper: {
@@ -56,4 +72,3 @@ const styles = {
         padding: ".2rem",
     }
 }
-

@@ -22,7 +22,7 @@ function TextInput({ name, disabled, label, handleChange, defaultValue, rules, r
 
     return (
         <div style={{ ...styles.TextInputWrapper as React.CSSProperties }}>
-            <label style={{ fontSize: "10pt" }}>{!disabled ? label : null}</label>
+            <label style={{ fontSize: "10pt",paddingBottom:".2rem" }}>{label}</label>
             <input
                 disabled={disabled}
                 {...field}
