@@ -36,7 +36,7 @@ function DatePicker({ name, disabled, label, handleChange, defaultValue, rules, 
                 style={{ ...styles.InputStyle, border: error ? '1px solid red' : '' }}
             />
             {error && (
-                <span style={{ color: 'red' }}>{error.message}</span>
+                <span style={{ color: 'red',fontSize: "8pt" }}>{error.message}</span>
             )}
         </div>
     );

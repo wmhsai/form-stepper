@@ -1,10 +1,20 @@
 
 import { ControllerProps, useController } from 'react-hook-form';
-import { isValidPhoneNumber, isValidateNationalCode } from "../../utils/Validations";
+import { isValidBankAccount, isValidPhoneNumber, isValidateNationalCode } from "../../utils/Validations";
 import { INPUT_TYPES } from '../../utils/enums';
 import { TextInputProps } from './inputsProps';
 
-function NumberInput({ name, disabled, label, handleChange, defaultValue, rules, required, control, type }: TextInputProps) {
+function NumberInput({ 
+    name,
+     disabled,
+      label,
+       handleChange, 
+       defaultValue,
+        rules,
+         required,
+          control,
+           type,
+         }: TextInputProps) {
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
         ['e', 'E', '+', '-', '.'].includes(event.key) && event.preventDefault();
@@ -23,7 +33,9 @@ function NumberInput({ name, disabled, label, handleChange, defaultValue, rules,
     else if (type == INPUT_TYPES.PHONE_NUMBER) {
         validationRules!.validate = isValidPhoneNumber;
     }
-
+    else if (type == INPUT_TYPES.BANK_ACCOUNT) {
+        validationRules!.validate = isValidBankAccount;
+    }
 
     const {
         field,
