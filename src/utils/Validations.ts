@@ -11,12 +11,21 @@ export const isValidateNationalCode = (nationalCode: string) => {
     }
     const m = n % 11;
     if (!((m == 0 && ld == 0) || (m == 1 && ld == 1) || (m > 1 && ld == 11 - m))) {
-        return "NationalCode is not valid!";
+        return "کد ملی نا معتبراست !"
     }
     return true;
 }
 
 export const isValidPhoneNumber = (phoneNumber: string) => {
     const regEx = /^\d{11}$/;
-    return regEx.test(phoneNumber) ? true : "Phone Number is not valid!";
+    return regEx.test(phoneNumber) ? true : "شماره تماس نا معتبر است !";
+}
+
+export const isValidBankAccount = (phoneNumber: string) => {
+    const regEx = /^\d+([-./]\d+)*$/
+    return regEx.test(phoneNumber) ? true : "شماره حساب بانکی نامعتبر است !";
+}
+export const isValidShabaAccount = (phoneNumber: string) => {
+    const regEx = /^(?:IR)(?=.{24}$)[0-9]*$/
+    return regEx.test(phoneNumber) ? true : "شماره شبا نامعتبر است !";
 }
