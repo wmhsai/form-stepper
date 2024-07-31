@@ -13,3 +13,8 @@ export interface Loan {
   penaltyRate: number;
   interestRate?: number;
 }
+export interface Facility {
+  name: string;
+  value: string | number;
+  id: number
+}
