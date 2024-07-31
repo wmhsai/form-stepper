@@ -1,12 +1,6 @@
-import { ALERT_TYPES } from '../../utils/enums';
+import { AlertProps } from '../../types/AlertTypes';
 import { iconTypes } from './AlertTypes';
 
-interface AlertProps {
-    alertType: ALERT_TYPES,
-    title?: string,
-    id: number | string,
-    message: string
-}
 const GeneralAlert = (props: AlertProps) => {
     const {
         message,
@@ -15,16 +9,16 @@ const GeneralAlert = (props: AlertProps) => {
 
     const icon = iconTypes[alertType];
     return (
-        <div role="alert" style={{ ...styles.Root as React.CSSProperties, }}>
-            <img src={icon} style={{ width: "2rem" }} />
+        <div role="alert" style={{ ...styles.root as React.CSSProperties }}>
             <div><p style={{ fontSize: "12pt" }}>{message}</p></div>
+            <img src={icon} style={{ width: "2rem" }} alt='img' />
         </div>
     )
 }
 export default GeneralAlert;
 
 const styles = {
-    Root: {
+    root: {
         display: 'flex',
         gap: '.5rem',
         alignItems: 'center',
