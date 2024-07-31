@@ -1,13 +1,29 @@
 import { ControllerProps, useController } from 'react-hook-form';
+import { INPUT_TYPES } from '../../utils/enums';
+import { isValidShabaAccount } from '../../utils/Validations';
 import { TextInputProps } from './inputsProps';
 
-function TextInput({ name, disabled, label, handleChange, defaultValue, rules, required, control }: TextInputProps) {
+function TextInput(
+    { name,
+        disabled,
+        label,
+        handleChange,
+        defaultValue,
+        rules,
+        required,
+        control,
+        type,
+        placeholder
+    }: TextInputProps) {
 
     const validationRules: ControllerProps['rules'] = {
         ...rules,
         ...(required && {
             required: rules?.required || '*',
         }),
+    }
+    if (type == INPUT_TYPES.SHABA_ACCOUNT) {
+        validationRules!.validate = isValidShabaAccount;
     }
 
     const {
@@ -22,13 +38,14 @@ function TextInput({ name, disabled, label, handleChange, defaultValue, rules, r
 
     return (
         <div style={{ ...styles.TextInputWrapper as React.CSSProperties }}>
-            <label style={{ fontSize: "10pt",paddingBottom:".2rem" }}>{label}</label>
+            <label style={{ fontSize: "10pt", paddingBottom: ".2rem" }}>{label}</label>
             <input
                 disabled={disabled}
                 {...field}
                 value={field.value || ""}
                 name={name}
                 type="text"
+                placeholder={placeholder}
                 onChange={(e) => {
                     field.onChange(e.target.value);
                     handleChange?.(e.target.value);
@@ -36,7 +53,7 @@ function TextInput({ name, disabled, label, handleChange, defaultValue, rules, r
                 style={{ ...styles.InputStyle, border: error ? '1px solid red' : '' }}
             />
             {error && (
-                <span style={{ color: 'red' }}>{error.message}</span>
+                <span style={{ color: 'red', fontSize: "8pt" }}>{error.message}</span>
             )}
         </div>
     );
