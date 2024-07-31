@@ -1,7 +1,9 @@
+import React from 'react';
 import { ControllerProps, useController } from 'react-hook-form';
-import { TextInputProps } from './inputsProps';
+import { styles } from '.';
+import { InputProps } from './inputsProps';
 
-function DatePicker({ name, disabled, label, handleChange, defaultValue, rules, required, control }: TextInputProps) {
+function DatePickerCustom({ name, disabled, label, handleChange, defaultValue, rules, required, control }: InputProps) {
 
     const validationRules: ControllerProps['rules'] = {
         ...rules,
@@ -21,8 +23,11 @@ function DatePicker({ name, disabled, label, handleChange, defaultValue, rules, 
     });
 
     return (
-        <div style={{ ...styles.TextInputWrapper as React.CSSProperties }}>
-            <label style={{ fontSize: "10pt" ,paddingBottom:".2rem"}}>{label}</label>
+        <div style={{ ...styles.textInputWrapper as React.CSSProperties }}>
+            <label style={{ ...styles.labelStyle as React.CSSProperties }}>
+                {label}
+                {required ? '*' : ''}
+            </label>
             <input
                 disabled={disabled}
                 {...field}
@@ -33,27 +38,27 @@ function DatePicker({ name, disabled, label, handleChange, defaultValue, rules, 
                     field.onChange(e.target.value);
                     handleChange?.(e.target.value);
                 }}
-                style={{ ...styles.InputStyle, border: error ? '1px solid red' : '' }}
+                style={{ ...styles.inputStyle as React.CSSProperties, border: error ? '1px solid red' : '' }}
             />
             {error && (
-                <span style={{ color: 'red',fontSize: "8pt" }}>{error.message}</span>
+                <span style={{ ...styles.spanStyle as React.CSSProperties }}>{error.message}</span>
             )}
         </div>
     );
 }
 
-export default DatePicker;
+export default DatePickerCustom;
 
-const styles = {
-    TextInputWrapper: {
-        width: '20rem',
-        display: "flex",
-        flexDirection: "column"
-    },
-    InputStyle: {
-        height: "1.5rem",
-        borderRadius: "1rem",
-        padding: ".2rem",
-    }
-}
+// const styles = {
+//     TextInputWrapper: {
+//         width: '20rem',
+//         display: "flex",
+//         flexDirection: "column"
+//     },
+//     InputStyle: {
+//         height: "2rem",
+//         borderRadius: "1rem",
+//         padding: ".2rem",
+//     }
+// }
 

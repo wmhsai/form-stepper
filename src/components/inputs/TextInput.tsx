@@ -1,7 +1,8 @@
 import { ControllerProps, useController } from 'react-hook-form';
+import { styles } from '.';
 import { INPUT_TYPES } from '../../utils/enums';
 import { isValidShabaAccount } from '../../utils/Validations';
-import { TextInputProps } from './inputsProps';
+import { InputProps } from './inputsProps';
 
 function TextInput(
     { name,
@@ -14,7 +15,7 @@ function TextInput(
         control,
         type,
         placeholder
-    }: TextInputProps) {
+    }: InputProps) {
 
     const validationRules: ControllerProps['rules'] = {
         ...rules,
@@ -37,8 +38,11 @@ function TextInput(
     });
 
     return (
-        <div style={{ ...styles.TextInputWrapper as React.CSSProperties }}>
-            <label style={{ fontSize: "10pt", paddingBottom: ".2rem" }}>{label}</label>
+        <div style={{ ...styles.textInputWrapper as React.CSSProperties }}>
+            <label style={{...styles.labelStyle as React.CSSProperties}}>
+                {label}
+                {required ? '*' : ''}
+            </label>
             <input
                 disabled={disabled}
                 {...field}
@@ -50,26 +54,13 @@ function TextInput(
                     field.onChange(e.target.value);
                     handleChange?.(e.target.value);
                 }}
-                style={{ ...styles.InputStyle, border: error ? '1px solid red' : '' }}
+                style={{ ...styles.inputStyle, border: error ? '1px solid red' : '' }}
             />
             {error && (
-                <span style={{ color: 'red', fontSize: "8pt" }}>{error.message}</span>
+                <span style={{ ...styles.spanStyle as React.CSSProperties }}>{error.message}</span>
             )}
         </div>
     );
 }
 
 export default TextInput;
-
-const styles = {
-    TextInputWrapper: {
-        width: '20rem',
-        display: "flex",
-        flexDirection: "column"
-    },
-    InputStyle: {
-        height: "1.5rem",
-        borderRadius: "1rem",
-        padding: ".2rem",
-    }
-}

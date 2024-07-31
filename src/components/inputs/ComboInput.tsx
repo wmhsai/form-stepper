@@ -1,5 +1,6 @@
 import React from 'react';
 import { ControllerProps, useController } from 'react-hook-form';
+import { styles } from '.';
 import { SelectionProps } from './inputsProps';
 
 const ComboInput: React.FC<SelectionProps> = ({ options, selectedOption, onChange, name, defaultValue, rules, required, control, label, disabled }) => {
@@ -28,7 +29,10 @@ const ComboInput: React.FC<SelectionProps> = ({ options, selectedOption, onChang
 
   return (
     <div style={{ ...styles.comboWrapper as React.CSSProperties }}>
-      <label style={{ fontSize: "10pt",paddingBottom:".2rem" }}>{label}</label>
+      <label style={{ ...styles.labelStyle as React.CSSProperties }}>
+        {label}
+        {required ? '*' : ''}
+      </label>
       <select
         disabled={disabled}
         name={name}
@@ -45,23 +49,8 @@ const ComboInput: React.FC<SelectionProps> = ({ options, selectedOption, onChang
           </option>
         ))}
       </select>
-    </div>
+    </div >
   );
 };
 
 export default ComboInput;
-
-const styles = {
-  selectStyle: {
-    width: '20rem',
-    height: "2rem",
-    fontSize: "12pt",
-    borderRadius: "1rem",
-    padding: ".2rem",
-  },
-  comboWrapper: {
-    display: "flex",
-    flexDirection: "column",
-    gap: ".1rem"
-  }
-}

@@ -1,9 +1,10 @@
 
 import CurrencyFormat from 'react-currency-format';
 import { ControllerProps, useController } from 'react-hook-form';
+import { styles } from '.';
 import { isValidBankAccount, isValidPhoneNumber, isValidateNationalCode } from "../../utils/Validations";
 import { INPUT_TYPES } from '../../utils/enums';
-import { TextInputProps } from './inputsProps';
+import { InputProps } from './inputsProps';
 
 function SeparatedPriceInput({
   name,
@@ -15,7 +16,7 @@ function SeparatedPriceInput({
   required,
   control,
   type,
-}: TextInputProps) {
+}: InputProps) {
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     ['e', 'E', '+', '-', '.'].includes(event.key) && event.preventDefault();
@@ -49,8 +50,11 @@ function SeparatedPriceInput({
   });
 
   return (
-    <div style={{ ...styles.TextInputWrapper as React.CSSProperties }}>
-      <label style={{ fontSize: "10pt", paddingBottom: ".2rem" }}>{!disabled ? label : null}</label>
+    <div style={{ ...styles.textInputWrapper as React.CSSProperties }}>
+      <label style={{ ...styles.labelStyle as React.CSSProperties }}>
+        {label}
+        {required ? '*' : ''}
+      </label>
       <CurrencyFormat
         onValueChange={(values: { value: string | number }) => {
           handleChange?.(values.value);
@@ -62,25 +66,15 @@ function SeparatedPriceInput({
         onKeyDown={handleKeyDown}
         thousandSeparator
         isNumericString
-        style={{ ...styles.InputStyle as React.CSSProperties }} />
-      {error && (
-        <span style={{ color: 'red', fontSize: "8pt" }}>{error.message}</span>
-      )}
-    </div>
+        style={{ ...styles.inputStyle as React.CSSProperties }} />
+      {
+        error && (
+          <span style={{ ...styles.spanStyle as React.CSSProperties }}>{error.message}</span>
+        )
+      }
+    </div >
   );
 }
 
 export default SeparatedPriceInput;
 
-const styles = {
-  TextInputWrapper: {
-    width: '20rem',
-    display: "flex",
-    flexDirection: "column"
-  },
-  InputStyle: {
-    height: "1.5rem",
-    borderRadius: "1rem",
-    padding: ".2rem",
-  }
-}
