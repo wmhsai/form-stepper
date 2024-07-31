@@ -6,7 +6,7 @@ const getAllBlu = () => {
     return axiosInstance({
         method: METHOD.GET,
         url: `${BaseUrl}/data`,
-    }).then((res) => res)
+    }).then((res) => res.data)
 };
 
 export const BluAPIs = {

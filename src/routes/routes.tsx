@@ -1,12 +1,14 @@
 import { createBrowserRouter, Outlet } from "react-router-dom";
-import Home from "../pages/Home";
+import { Home } from "../pages/Home";
 import Layout from "../pages/Layout";
+import Loan from "../pages/Loan";
+import Login from "../pages/Login";
 import RequireAuth from "./RequireAuth";
 
 export const createRoutes = () => createBrowserRouter([
     {
         element: <Outlet />,
-        errorElement: <>ErrorPage</>,
+        errorElement: <>خطا</>,
         children: [
             {
                 path: '/',
@@ -16,12 +18,28 @@ export const createRoutes = () => createBrowserRouter([
                     </RequireAuth>,
                 children: [
                     {
-                        element: <Home />,
+                        element: <Login />,
                         index: true,
-                        errorElement: <>ErrorPage</>
+                        errorElement: <>خطا</>
                     },
+                    {
+                        path: "/login",
+                        element: <Login />,
+                        index: true
+                    },
+                    {
+                        path: '/home',
+                        element: <Home />,
+                        errorElement: <>خطا</>
+                    },
+                    {
+                        path: '/loan',
+                        element: <Loan />,
+                        errorElement: <>خطا</>
+                    },
+
                 ]
-            }
+            },
         ]
     }
 ]);
