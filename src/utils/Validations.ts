@@ -22,7 +22,7 @@ export const isValidPhoneNumber = (phoneNumber: string) => {
 }
 
 export const isValidBankAccount = (phoneNumber: string) => {
-    const regEx = /^\d+([-./]\d+)*$/
+    const regEx = /^\d{12,16}$/;
     return regEx.test(phoneNumber) ? true : "شماره حساب بانکی نامعتبر است !";
 }
 export const isValidShabaAccount = (phoneNumber: string) => {
