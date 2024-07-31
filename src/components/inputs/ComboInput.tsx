@@ -38,7 +38,7 @@ const ComboInput: React.FC<SelectionProps> = ({ options, selectedOption, onChang
           ...styles.selectStyle, border: error ? '1px solid red' : '',
         }}
       >
-        <option value="">Select...</option>
+        <option value="">انتخاب کنید...</option>
         {options?.map((option) => (
           <option key={option.value} value={option.value}>
             {option.name}

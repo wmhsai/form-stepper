@@ -1,16 +1,11 @@
 import { useState } from 'react';
 import { Step, Stepper } from "react-form-stepper";
-import { FormProvider, useForm } from 'react-hook-form';
-import { StepperType, StepType } from '../../types/stepperTypes';
+import { useFormContext } from 'react-hook-form';
+import { StepType } from '../../types/stepperTypes';
 
-function StepperCustom({ steps }: { steps: StepType[] }) {
+function StepperCustom({ steps, sendRequest }: { steps: StepType[], sendRequest: () => void }) {
     const [activeStep, setActiveStep] = useState(0);
-
-    const formProps = useForm<StepperType>({
-        mode: "onChange"
-    });
-    const { trigger } = formProps;
-
+    const { trigger } = useFormContext();
     const nextStep = async () => {
         const isStepValid = await trigger();
         if (isStepValid) {
@@ -19,27 +14,24 @@ function StepperCustom({ steps }: { steps: StepType[] }) {
     }
     return (
         <div>
-            <FormProvider  {...formProps}>
-                <Stepper activeStep={activeStep}>
-                    {steps.map((step) => (
-                        <Step key={step.id} label={step.title} />
-                    ))}
-                </Stepper>
-                <div style={{ padding: '20px' }}>
-                    <div style={{ minHeight: "20rem" }}>
-                        {steps[activeStep].component}
-                    </div>
-                    <div style={{ ...styles.ButtonWrapper as React.CSSProperties }}>
-                        <button onClick={() => setActiveStep(activeStep - 1)} disabled={activeStep === 0}>Previous</button>
-                        {activeStep < steps.length - 1 ? (
-                            <button onClick={nextStep}>Next</button>
-                        ) : (
-                            <button onClick={() => setActiveStep(steps.length - 1)}>End</button>
-                        )}
-                    </div>
+            <Stepper activeStep={activeStep} dir='ltr'>
+                {steps.map((step) => (
+                    <Step key={step.id} label={step.title} />
+                ))}
+            </Stepper>
+            <div style={{ padding: '20px' }}>
+                <div style={{ minHeight: "20rem" }}>
+                    {steps[activeStep].component}
                 </div>
-
-            </FormProvider>
+                <div style={{ ...styles.ButtonWrapper as React.CSSProperties }}>
+                    {activeStep < steps.length - 1 ? (
+                        <button onClick={nextStep}>بعدی</button>
+                    ) : (
+                        <button onClick={sendRequest}>ارسال</button>
+                    )}
+                    <button onClick={() => setActiveStep(activeStep - 1)} disabled={activeStep === 0}>قبلی</button>
+                </div>
+            </div>
         </div>
     );
 }

@@ -23,6 +23,7 @@ const styles = {
     },
     content: {
         width: "70%",
+        minHeight: "35rem",
         borderRadius:"1.5rem",
         backgroundColor:"#fafafa"
 
