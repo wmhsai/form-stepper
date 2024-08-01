@@ -11,3 +11,16 @@ export interface StepType {
     title: string;
     component: JSX.Element;
 }
+
+interface Facility {
+    name: string;
+    value: number;
+}
+export interface FacilitiesStepperProps {
+    selectedFacilitiesOption: Facility;
+    selectedPaidPeriodOption: Facility;
+    handleChangeFacilities: (value: string) => void;
+    handleChangePaidPeriod: (value: string) => void;
+    isDisabledPaidPeriod: boolean;
+    showFinalData: boolean;
+}

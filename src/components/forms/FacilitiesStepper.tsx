@@ -1,37 +1,23 @@
-import React, { Fragment, useCallback, useState } from 'react';
+import React, { Fragment } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { styles } from '.';
 import { UseGetAllBlu } from '../../hooks/UseBlu';
 import { Facility, Loan } from '../../types/LoanTypes';
+import { FacilitiesStepperProps } from '../../types/StepperTypes';
 import { calculateAmountLate, calculateBankLoanInterest, calculateFacilities, calculateMonthlyInstallmentAmount } from '../../utils/calculateFacilities';
 import { formatWithCommas } from '../../utils/convert';
 import ComboInput from '../inputs/ComboInput';
 
-const FacilitiesStepper = () => {
+const FacilitiesStepper = ({
+    selectedFacilitiesOption,
+    selectedPaidPeriodOption,
+    handleChangeFacilities,
+    handleChangePaidPeriod,
+    isDisabledPaidPeriod,
+    showFinalData,
+}: FacilitiesStepperProps) => {
     const { data } = UseGetAllBlu()
-    const { control, getValues, setValue } = useFormContext();
-    const [selectedFacilitiesOption, setSelectedFacilitiesOption] = useState({ name: "", value: 0 });
-    const [isDisabledPaidPeriod, setIsDisabledPaidPeriod] = useState(true);
-    const [showFinalData, setShowFinalData] = useState(false);
-    const [selectedPaidPeriodOption, setSelectedPaidPeriodOption] = useState({ name: "", value: 0 });
-
-    const handleChangeFacilities = useCallback((newValue: string) => {
-        const parsedValue = parseInt(newValue, 10);
-        setSelectedFacilitiesOption({ name: "", value: isNaN(parsedValue) ? 0 : parsedValue });
-        setShowFinalData(false);
-        if (parsedValue) {
-            setIsDisabledPaidPeriod(false);
-        } else {
-            setIsDisabledPaidPeriod(true);
-            setValue("PaidPeriod", null);
-        }
-    }, [setValue]);
-
-    const handleChangePaidPeriod = useCallback(async (newValue: string) => {
-        const parsedValue = parseInt(newValue, 10);
-        setSelectedPaidPeriodOption({ name: "", value: isNaN(parsedValue) ? 0 : parsedValue });
-        setShowFinalData(parsedValue ? true : false);
-    }, []);
+    const { control, getValues } = useFormContext();
 
     const allFacilitiesNames = [...new Set(data?.map((item: Facility) => ({
         name: item.name,
