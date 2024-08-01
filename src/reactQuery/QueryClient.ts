@@ -6,7 +6,7 @@ export interface CustomAxiosError extends AxiosError {
     }
 }
 
-export const defaultStaleTime = 20 * 1000;
+export const defaultStaleTime = 20 * 10000;
 export const queryClient = new QueryClient({
     mutationCache: new MutationCache({
         onError: () => { },
