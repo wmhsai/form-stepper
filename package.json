@@ -13,12 +13,14 @@
   "dependencies": {
     "@types/react-currency-format": "^1.0.4",
     "axios": "^1.7.2",
+    "date-fns": "^3.6.0",
     "json-server": "^1.0.0-beta.1",
     "react": "^18.3.1",
     "react-currency-format": "^1.1.0",
     "react-dom": "^18.3.1",
     "react-form-stepper": "^2.0.3",
     "react-hook-form": "^7.52.1",
+    "react-multi-date-picker": "^4.5.2",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.25.1",
     "sonner": "^1.5.0"
