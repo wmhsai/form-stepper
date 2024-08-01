@@ -50,7 +50,6 @@ const FacilitiesStepper = ({
         { title: "مبلغ جریمه دیرکرد:", value: formatWithCommas(AmountLate) },
 
     ]
-
     return (
         <Fragment>
             <div style={{ ...styles.FormWrapper as React.CSSProperties }}>
