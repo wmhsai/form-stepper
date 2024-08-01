@@ -10,7 +10,7 @@ const GeneralAlert = (props: AlertProps) => {
     const icon = iconTypes[alertType];
     return (
         <div role="alert" style={{ ...styles.root as React.CSSProperties }}>
-            <div><p style={{ fontSize: "12pt" }}>{message}</p></div>
+            <p style={{ fontSize: "12pt" }}>{message}</p>
             <img src={icon} style={{ width: "2rem" }} alt='img' />
         </div>
     )

@@ -1,6 +1,6 @@
 
 
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import ComboInput from '../components/inputs/ComboInput';
@@ -25,22 +25,21 @@ const Login = () => {
         .map(({ name, value }) => ({ name, value }));
 
     return (
-        <Fragment>
-            <div style={{ ...styles.MainWrapper as React.CSSProperties }}>
-                <p style={{ color: "#3068fa", fontWeight: "bold" }}>ورود به سامانه تسهیلات</p>
-                <div style={{ ...styles.FormWrapper as React.CSSProperties }}>
-                    <ComboInput
-                        control={control}
-                        options={allFacilitiesNames as { value: number; name: string; }[]}
-                        selectedOption={getValues().facilities ?? selectedFacilitiesOption.name}
-                        onChange={handleChangeFacilities}
-                        name='facilities'
-                        label='انتخاب تسهیلات'
-                        required
-                    />
-                </div>
-            </div>
-        </Fragment>)
+        <section style={{ ...styles.MainWrapper as React.CSSProperties }}>
+            <p style={{ color: "#3068fa", fontWeight: "bold" }}>ورود به سامانه تسهیلات</p>
+            <form style={{ ...styles.FormWrapper as React.CSSProperties }}>
+                <ComboInput
+                    control={control}
+                    options={allFacilitiesNames as { value: number; name: string; }[]}
+                    selectedOption={getValues().facilities ?? selectedFacilitiesOption.name}
+                    onChange={handleChangeFacilities}
+                    name='facilities'
+                    label='انتخاب تسهیلات'
+                    required
+                />
+            </form>
+        </section>
+    )
 }
 
 export default Login;

@@ -15,18 +15,18 @@ export const Home = () => {
 
   return (
     <>
-      <div style={{
+      <main style={{
         ...styles.mainWrapper as React.CSSProperties,
       }}>
-        <div style={{ ...styles.headWrapper as React.CSSProperties }}>
+        <header style={{ ...styles.headWrapper as React.CSSProperties }}>
           <p style={{ ...styles.activeLoanTitle as React.CSSProperties }}>وام های فعال شما</p>
           <p style={{ fontSize: "12pt" }}>
             {` سلام ${userData[0]?.FirstName ?
               (userData[0]?.FirstName + userData[0]?.LastName) :
               "کاربر"}`}
           </p>
-        </div>
-        <div style={{ ...styles.cardWrapper as React.CSSProperties }}>
+        </header>
+        <section style={{ ...styles.cardWrapper as React.CSSProperties }}>
           {
             userData.length !== 0 ?
               userData.map((data: UserData, index: number) => (
@@ -35,9 +35,11 @@ export const Home = () => {
               : <div style={{ ...styles.cardWrapperEmpty as React.CSSProperties }}>
                 در حال حاضر وام فعالی ندارید!
               </div>}
-        </div>
-        <button onClick={() => { navigate("../loan") }}>شروع فرآیند جدید</button>
-      </div>
+        </section>
+        <nav>
+          <button onClick={() => { navigate("../loan") }}>شروع فرآیند جدید</button>
+        </nav>
+      </main>
     </>)
 }
 const styles = {
