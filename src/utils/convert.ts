@@ -1,3 +1,5 @@
+import { format as farmatEn } from "date-fns";
+
 export function englishToFarsiNumber(n: number | string) {
   const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
   return n
@@ -13,4 +15,10 @@ export function generateUniqueKey() {
 
 export function formatWithCommas(value: number | undefined): string {
   return value !== undefined ? value.toLocaleString() : 'N/A';
+}
+
+export function convertDateEn(date: string) {
+  if (date === null) return null;
+  const convertDate = farmatEn(new Date(date), 'yyyy-MM-dd')
+  return convertDate;
 }
