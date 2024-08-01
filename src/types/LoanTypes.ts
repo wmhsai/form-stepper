@@ -1,4 +1,4 @@
-interface RepaymentType {
+export interface RepaymentType {
   name: string;
   value: number;
 }
