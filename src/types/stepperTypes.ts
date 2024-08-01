@@ -7,9 +7,9 @@ export interface StepperType {
 }
 
 export interface StepType {
-    id: string;
-    title: string;
-    component: JSX.Element;
+    id?: string;
+    title?: string;
+    component?: JSX.Element;
 }
 
 interface Facility {
