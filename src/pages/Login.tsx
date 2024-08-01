@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import ComboInput from '../components/inputs/ComboInput';
 import { UseGetAllBlu } from '../hooks/UseBlu';
-import { Facility } from '../types/Loan Types';
+import { Facility } from '../types/LoanTypes';
 
 const Login = () => {
     const { data } = UseGetAllBlu();
