@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Step, Stepper } from "react-form-stepper";
 import { useFormContext } from 'react-hook-form';
-import { StepType } from '../../types/stepperTypes';
+import { StepType } from '../../types/StepperTypes';
 
 function StepperCustom({ steps, sendRequest }: { steps: StepType[], sendRequest: () => void }) {
     const [activeStep, setActiveStep] = useState(0);
@@ -14,13 +14,16 @@ function StepperCustom({ steps, sendRequest }: { steps: StepType[], sendRequest:
     }
     return (
         <div>
-            <Stepper activeStep={activeStep} dir='ltr'>
+            <Stepper
+                style={{ fontFamily: "Vazir" }}
+                activeStep={activeStep}
+                dir='ltr'>
                 {steps.map((step) => (
                     <Step key={step.id} label={step.title} />
                 ))}
             </Stepper>
             <div style={{ padding: '20px' }}>
-                <div style={{ minHeight: "20rem" }}>
+                <div style={{ minHeight: "22rem" }}>
                     {steps[activeStep].component}
                 </div>
                 <div style={{ ...styles.ButtonWrapper as React.CSSProperties }}>

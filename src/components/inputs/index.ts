@@ -19,8 +19,9 @@ export const styles = {
     },
     selectStyle: {
         width: '20rem',
-        height: "2rem",
+        height: "2.5rem",
         fontSize: "12pt",
+        fontFamily:"Vazir",
         borderRadius: "1rem",
         padding: ".2rem",
       },
