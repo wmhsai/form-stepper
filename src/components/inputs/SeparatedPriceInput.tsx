@@ -10,7 +10,6 @@ function SeparatedPriceInput({
   name,
   disabled,
   label,
-  handleChange,
   defaultValue,
   rules,
   required,
@@ -57,7 +56,7 @@ function SeparatedPriceInput({
       </label>
       <CurrencyFormat
         onValueChange={(values: { value: string | number }) => {
-          handleChange?.(values.value);
+          field.onChange(values.value);
         }}
         disabled={disabled}
         {...field}
