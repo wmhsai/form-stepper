@@ -4,6 +4,7 @@ import { INPUT_TYPES } from "../../utils/enums";
 import NumberInput from "../inputs/NumberInput";
 import SeparatedPriceInput from "../inputs/SeparatedPriceInput";
 import TextInput from "../inputs/TextInput";
+import { styles } from ".";
 
 const BankInformation = () => {
   const { control } = useFormContext();
@@ -36,13 +37,3 @@ const BankInformation = () => {
     </Fragment>)
 }
 export default BankInformation;
-
-const styles = {
-  FormWrapper: {
-    display: "flex",
-    flexDirection: "row",
-    gap: "2rem",
-    flexWrap: "wrap",
-    justifyContent: "center"
-  }
-}

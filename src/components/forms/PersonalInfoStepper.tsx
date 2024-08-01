@@ -4,6 +4,7 @@ import { INPUT_TYPES } from "../../utils/enums";
 import DatePickerCustom from "../inputs/DatePicker";
 import NumberInput from "../inputs/NumberInput";
 import TextInput from "../inputs/TextInput";
+import { styles } from ".";
 
 const PersonalInfoStepper = () => {
   const { control } = useFormContext();
@@ -21,13 +22,3 @@ const PersonalInfoStepper = () => {
 }
 
 export default PersonalInfoStepper;
-
-const styles = {
-  FormWrapper: {
-    display: "flex",
-    flexDirection: "row",
-    gap: "2rem",
-    flexWrap: "wrap",
-    justifyContent: "center"
-  }
-}
