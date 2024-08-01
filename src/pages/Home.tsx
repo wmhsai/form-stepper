@@ -22,7 +22,7 @@ export const Home = () => {
           <p style={{ ...styles.activeLoanTitle as React.CSSProperties }}>وام های فعال شما</p>
           <p style={{ fontSize: "12pt" }}>
             {` سلام ${userData[0]?.FirstName ?
-              (userData[0]?.FirstName + userData[0]?.LastName) :
+              (userData[0]?.FirstName + " " + userData[0]?.LastName) :
               "کاربر"}`}
           </p>
         </header>
