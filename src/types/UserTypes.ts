@@ -3,7 +3,7 @@ export interface UserData {
     LastName: string;
     AccountNumber: string;
     AverageRiyal: string;
-    BirthDate: Date;
+    BirthDate: string;
     NationalCode: string;
     PaidPeriod: string;
     PhoneNumber: string;

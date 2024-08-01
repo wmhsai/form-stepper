@@ -7,6 +7,7 @@ import FacilitiesStepper from "../components/forms/FacilitiesStepper";
 import PersonalInfoStepper from "../components/forms/PersonalInfoStepper";
 import StepperCustom from "../components/forms/Stepper";
 import { UserData } from "../types/UserTypes";
+import { convertDateEn } from "../utils/convert";
 import { saveUserData } from "../utils/saveUserToIndexDB";
 
 const Loan = () => {
@@ -17,6 +18,7 @@ const Loan = () => {
   const { trigger, handleSubmit, setValue } = formProps;
 
   const submit = async (data: UserData) => {
+    data.BirthDate = convertDateEn(data.BirthDate) ?? ''
     const isStepValid = await trigger();
     if (isStepValid) {
       saveUserData(data)
