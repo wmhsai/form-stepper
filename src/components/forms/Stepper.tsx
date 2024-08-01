@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Step, Stepper } from "react-form-stepper";
 import { useFormContext } from 'react-hook-form';
-import { StepType } from '../../types/StepperTypes';
+import { StepType } from '../../types/stepperTypes';
 
 function StepperCustom({ steps, sendRequest }: { steps: StepType[], sendRequest: () => void }) {
     const [activeStep, setActiveStep] = useState(0);

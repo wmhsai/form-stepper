@@ -3,7 +3,7 @@ import { useFormContext } from 'react-hook-form';
 import { styles } from '.';
 import { UseGetAllBlu } from '../../hooks/UseBlu';
 import { Facility, Loan } from '../../types/LoanTypes';
-import { FacilitiesStepperProps } from '../../types/StepperTypes';
+import { FacilitiesStepperProps } from '../../types/stepperTypes';
 import { calculateAmountLate, calculateBankLoanInterest, calculateFacilities, calculateMonthlyInstallmentAmount } from '../../utils/calculateFacilities';
 import { formatWithCommas } from '../../utils/convert';
 import ComboInput from '../inputs/ComboInput';
