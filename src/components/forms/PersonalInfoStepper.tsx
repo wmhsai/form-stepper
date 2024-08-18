@@ -8,7 +8,7 @@ import TextInput from "../inputs/TextInput";
 const PersonalInfoStepper = () => {
   const { control } = useFormContext();
   return (
-    <form style={{ ...styles.FormWrapper as React.CSSProperties }}>
+    <form style={styles.FormWrapper}>
       <TextInput control={control} name="FirstName" label="نام" required />
       <TextInput control={control} name="LastName" label="نام خانوادگی" required />
       <NumberInput control={control} name="NationalCode" label="کد ملی" required type={INPUT_TYPES.NATIONAL_CODE} />

@@ -8,7 +8,7 @@ import TextInput from "../inputs/TextInput";
 const BankInformation = () => {
   const { control } = useFormContext();
   return (
-    <form style={{ ...styles.FormWrapper as React.CSSProperties }}>
+    <form style={styles.FormWrapper}>
       <NumberInput
         control={control}
         name="AccountNumber"

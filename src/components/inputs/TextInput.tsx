@@ -38,8 +38,8 @@ function TextInput(
     });
 
     return (
-        <div style={{ ...styles.textInputWrapper as React.CSSProperties }}>
-            <label style={{...styles.labelStyle as React.CSSProperties}}>
+        <div style={styles.textInputWrapper}>
+            <label style={styles.labelStyle}>
                 {label}
                 {required ? '*' : ''}
             </label>
@@ -57,7 +57,7 @@ function TextInput(
                 style={{ ...styles.inputStyle, border: error ? '1px solid red' : '' }}
             />
             {error && (
-                <span style={{ ...styles.spanStyle as React.CSSProperties }}>{error.message}</span>
+                <span style={styles.spanStyle}>{error.message}</span>
             )}
         </div>
     );

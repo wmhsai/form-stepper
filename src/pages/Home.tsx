@@ -15,24 +15,22 @@ export const Home = () => {
 
   return (
     <>
-      <main style={{
-        ...styles.mainWrapper as React.CSSProperties,
-      }}>
-        <header style={{ ...styles.headWrapper as React.CSSProperties }}>
-          <p style={{ ...styles.activeLoanTitle as React.CSSProperties }}>وام های فعال شما</p>
+      <main style={styles.mainWrapper}>
+        <header style={styles.headWrapper}>
+          <p style={styles.activeLoanTitle}>وام های فعال شما</p>
           <p style={{ fontSize: "12pt" }}>
             {` سلام ${userData[0]?.FirstName ?
               (userData[0]?.FirstName + " " + userData[0]?.LastName) :
               "کاربر"}`}
           </p>
         </header>
-        <section style={{ ...styles.cardWrapper as React.CSSProperties }}>
+        <section style={styles.cardWrapper}>
           {
             userData.length !== 0 ?
               userData.map((data: UserData, index: number) => (
                 <ActiveLoanCard key={index + Math.random()} DBData={data} />
               ))
-              : <div style={{ ...styles.cardWrapperEmpty as React.CSSProperties }}>
+              : <div style={styles.cardWrapperEmpty}>
                 در حال حاضر وام فعالی ندارید!
               </div>}
         </section>
@@ -42,7 +40,7 @@ export const Home = () => {
       </main>
     </>)
 }
-const styles = {
+const styles: Record<string, React.CSSProperties> = {
   mainWrapper: {
     display: "flex",
     flexDirection: "column",

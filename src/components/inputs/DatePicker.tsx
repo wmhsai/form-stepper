@@ -1,4 +1,3 @@
-import React from 'react';
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import { ControllerProps, useController } from 'react-hook-form';
@@ -22,8 +21,8 @@ function DatePickerCustom({ name, disabled, label, defaultValue, rules, required
         defaultValue: defaultValue ?? null,
     });
     return (
-        <div style={{ ...styles.textInputWrapper as React.CSSProperties }}>
-            <label style={{ ...styles.labelStyle as React.CSSProperties }}>
+        <div style={styles.textInputWrapper}>
+            <label style={styles.labelStyle}>
                 {label}
                 {required ? '*' : ''}
             </label>
@@ -35,10 +34,10 @@ function DatePickerCustom({ name, disabled, label, defaultValue, rules, required
                 value={field.value || ""}
                 name={name}
                 onChange={(date) => field.onChange(date)}
-                style={{ ...styles.inputStyle as React.CSSProperties, border: error ? '1px solid red' : '', width: '20rem', }}
+                style={{ ...styles.inputStyle, border: error ? '1px solid red' : '', width: '20rem' }}
             />
             {error && (
-                <span style={{ ...styles.spanStyle as React.CSSProperties }}>{error.message}</span>
+                <span style={styles.spanStyle}>{error.message}</span>
             )}
         </div>
     );

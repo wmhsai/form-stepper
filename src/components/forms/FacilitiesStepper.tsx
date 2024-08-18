@@ -52,7 +52,7 @@ const FacilitiesStepper = ({
     ]
     return (
         <Fragment>
-            <div style={{ ...styles.FormWrapper as React.CSSProperties }}>
+            <div style={styles.FormWrapper}>
                 <ComboInput
                     control={control}
                     options={allFacilitiesNames as { value: number; name: string; }[]}
@@ -74,12 +74,12 @@ const FacilitiesStepper = ({
                 />
             </div>
             {showFinalData &&
-                <article style={{ ...localStyles.detailWrapper as React.CSSProperties }}>
+                <article style={localStyles.detailWrapper}>
 
                     {result.map((item) => (
                         <div
                             key={item.title}
-                            style={{ ...localStyles.resultWrapper as React.CSSProperties }}
+                            style={localStyles.resultWrapper}
                         >
                             <span style={{ fontSize: "11pt", color: "#777" }}>{item.title}</span>
                             <div style={{ fontSize: "10pt" }}>{item.value}</div>
@@ -91,7 +91,7 @@ const FacilitiesStepper = ({
 
 export default FacilitiesStepper;
 
-const localStyles = {
+const localStyles: Record<string, React.CSSProperties> = {
     detailWrapper: {
         display: "flex",
         flexDirection: "column",

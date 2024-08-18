@@ -1,4 +1,4 @@
-export const styles = {
+export const styles: Record<string, React.CSSProperties> = {
     FormWrapper: {
         display: "flex",
         flexDirection: "row",

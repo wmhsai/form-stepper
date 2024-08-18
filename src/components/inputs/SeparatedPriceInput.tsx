@@ -49,8 +49,8 @@ function SeparatedPriceInput({
   });
 
   return (
-    <div style={{ ...styles.textInputWrapper as React.CSSProperties }}>
-      <label style={{ ...styles.labelStyle as React.CSSProperties }}>
+    <div style={styles.textInputWrapper}>
+      <label style={styles.labelStyle}>
         {label}
         {required ? '*' : ''}
       </label>
@@ -65,10 +65,10 @@ function SeparatedPriceInput({
         onKeyDown={handleKeyDown}
         thousandSeparator
         isNumericString
-        style={{ ...styles.inputStyle as React.CSSProperties }} />
+        style={styles.inputStyle} />
       {
         error && (
-          <span style={{ ...styles.spanStyle as React.CSSProperties }}>{error.message}</span>
+          <span style={styles.spanStyle}>{error.message}</span>
         )
       }
     </div >

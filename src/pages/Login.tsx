@@ -25,9 +25,9 @@ const Login = () => {
         .map(({ name, value }) => ({ name, value }));
 
     return (
-        <section style={{ ...styles.MainWrapper as React.CSSProperties }}>
+        <section style={styles.MainWrapper}>
             <p style={{ color: "#3068fa", fontWeight: "bold" }}>ورود به سامانه تسهیلات</p>
-            <form style={{ ...styles.FormWrapper as React.CSSProperties }}>
+            <form style={styles.FormWrapper}>
                 <ComboInput
                     control={control}
                     options={allFacilitiesNames as { value: number; name: string; }[]}
@@ -44,7 +44,7 @@ const Login = () => {
 
 export default Login;
 
-const styles = {
+const styles: Record<string, React.CSSProperties> = {
     MainWrapper: {
         display: "flex",
         flexDirection: "column",

@@ -26,7 +26,7 @@ function StepperCustom({ steps, sendRequest }: { steps: StepType[], sendRequest:
                 <div style={{ minHeight: "22rem" }}>
                     {steps[activeStep].component}
                 </div>
-                <div style={{ ...styles.ButtonWrapper as React.CSSProperties }}>
+                <div style={styles.ButtonWrapper}>
                     {activeStep < steps.length - 1 ? (
                         <button onClick={nextStep}>بعدی</button>
                     ) : (

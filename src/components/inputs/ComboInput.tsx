@@ -28,8 +28,8 @@ const ComboInput: React.FC<SelectionProps> = ({ options, selectedOption, onChang
   };
 
   return (
-    <div style={{ ...styles.comboWrapper as React.CSSProperties }}>
-      <label style={{ ...styles.labelStyle as React.CSSProperties }}>
+    <div style={styles.comboWrapper}>
+      <label style={styles.labelStyle}>
         {label}
         {required ? '*' : ''}
       </label>

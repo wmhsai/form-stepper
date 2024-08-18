@@ -10,7 +10,7 @@ const ActiveLoanCard = ({ DBData }: { DBData: UserData }) => {
     const myRepayment = myFacilities?.repaymentType?.find((repayment: Facility) => repayment.value == DBData.PaidPeriod)
 
     return (
-        <article style={{ ...styles.CardWrapper as React.CSSProperties }}>
+        <article style={styles.CardWrapper}>
             <h3 style={{ fontSize: "12pt", fontWeight: "bold" }}>{myFacilities?.name}</h3>
             <p style={{ fontSize: "11pt", color: "#555" }}>
                 {`به مبلغ ${formatWithCommas(myFacilities?.amount)}و باز پرداخت  ${myRepayment?.name}`}
@@ -21,7 +21,7 @@ const ActiveLoanCard = ({ DBData }: { DBData: UserData }) => {
 
 export default ActiveLoanCard
 
-const styles = {
+const styles: Record<string, React.CSSProperties> = {
     CardWrapper: {
         padding: "0 1rem",
         borderRadius: "1rem",

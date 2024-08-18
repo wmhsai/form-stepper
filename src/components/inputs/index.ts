@@ -1,4 +1,6 @@
-export const styles = {
+import React from "react";
+
+export const styles: Record<string, React.CSSProperties> = {
     textInputWrapper: {
         width: '20rem',
         display: "flex",
@@ -21,13 +23,13 @@ export const styles = {
         width: '20rem',
         height: "2.5rem",
         fontSize: "12pt",
-        fontFamily:"Vazir",
+        fontFamily: "Vazir",
         borderRadius: "1rem",
         padding: ".2rem",
-      },
-      comboWrapper: {
+    },
+    comboWrapper: {
         display: "flex",
         flexDirection: "column",
         gap: ".1rem"
-      }
+    }
 }

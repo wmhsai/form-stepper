@@ -49,13 +49,13 @@ function NumberInput({
     });
 
     return (
-        <div style={{ ...styles.textInputWrapper as React.CSSProperties }}>
-            <label style={{ ...styles.labelStyle as React.CSSProperties }}>
+        <div style={styles.textInputWrapper}>
+            <label style={styles.labelStyle}>
                 {label}
                 {required ? '*' : ''}
             </label>
             <input
-                style={{ ...styles.inputStyle as React.CSSProperties, border: error ? '1px solid red' : '' }}
+                style={{ ...styles.inputStyle, border: error ? '1px solid red' : '' }}
                 disabled={disabled}
                 {...field}
                 value={field.value || ""}
@@ -68,7 +68,7 @@ function NumberInput({
                 }}
             />
             {error && (
-                <span style={{ ...styles.spanStyle as React.CSSProperties }}>{error.message}</span>
+                <span style={styles.spanStyle}>{error.message}</span>
             )}
         </div>
     );
