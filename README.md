@@ -1,13 +1,14 @@
-Blu Bank Challenge Solution
+Form Stepper Project
 
 Description
-This project is a solution developed for the Blu Bank coding challenge. The core technologies utilized in this project include:
+A TypeScript-based React application featuring a form stepper component with local storage functionality using IndexedDB.
 
-TypeScript: Enhances JavaScript by adding static types, leading to more reliable and maintainable code.
 React: A popular library for building user interfaces, particularly single-page applications.
+TypeScript: Enhances JavaScript by adding static types, leading to more reliable and maintainable code.
 React Query: A powerful data synchronization library for fetching, caching, synchronizing, and updating server state in React applications.
 React Hook Form: A comprehensive and flexible library for managing form state, validation, and submission in React applications.
 Server JSON: Utilized for serving JSON files, demonstrating a practical approach to handling static data in a dynamic manner.
+IndexDB: A low-level API for client-side storage of significant amounts of structured data, offering better performance than localStorage for larger datasets.
 
 Getting Started
 Prerequisites
