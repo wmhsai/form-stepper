@@ -18,7 +18,7 @@ Installation
 
 1.Clone the repository to your local machine.
 git clone https://github.com/wmhsai/form-stepper.git
-cd blu-challenge
+cd form-stepper
 
 2.Install the necessary packages.
 yarn install
